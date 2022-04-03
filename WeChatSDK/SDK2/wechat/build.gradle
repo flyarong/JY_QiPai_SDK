@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:27.0.3'
+    compile files('libs/classes.jar')
+    compile files('libs/libammsdk.jar')
+}
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+}
+task makeJar(type: Copy) {
+    delete 'build/libs/unitylib.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    include('libammsdk.jar')
+    rename('classes.jar', 'unitylib.jar')
+}
+
+makeJar.dependsOn(build)

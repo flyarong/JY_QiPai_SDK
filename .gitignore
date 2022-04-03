@@ -1,0 +1,15 @@
+*.userprefs
+U8SDK_UnityDemo/Library
+U8SDK_UnityDemo/Temp
+U8SDK_UnityDemo/obj
+U8SDK_UnityDemo/*.csproj
+U8SDK_UnityDemo/*.user
+U8SDK_UnityDemo/*.suo
+U8SDK_UnityDemo/*.sln
+
+*.unityproj
+*.pidb
+
+*.meta
+!*.*.meta
+*.[0-9].meta

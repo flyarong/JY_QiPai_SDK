@@ -1,0 +1,42 @@
+/// <summary>
+/// 主程序 => SDK 接口： 在 SDK 中实现
+/// </summary>
+public abstract class JYSDKInterface{
+
+    // 初始化
+    public abstract void Init(string _json_data);
+
+    // 登录
+    public abstract void Login(string _json_data);
+
+    // 支付
+    public abstract void Pay(string _json_data);
+
+    // 登出
+    public abstract void LoginOut(string _json_data);
+
+    // 个人中心
+    public abstract void ShowAccountCenter(string _json_data);
+}
+
+
+/// <summary>
+/// 结果返回：SDK 接口 => 主程序， 在主程序中实现
+/// </summary>
+public abstract class JYSDKResult{
+
+    // 初始化
+    public abstract void InitResult(string _json_data);
+
+    // 登录
+    public abstract void LoginResult(string _json_data);
+
+    // 支付
+    public abstract void PayResult(string _json_data);
+
+    // 登出
+    public abstract void LoginOutResult(string _json_data);
+
+    // 个人中心
+    public abstract void ShowAccountCenterResult(string _json_data);
+}
